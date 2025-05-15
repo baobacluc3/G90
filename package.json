@@ -1,0 +1,27 @@
+{
+  "name": "petcare",
+  "version": "1.0.0",
+  "description": "Petcare - Ứng dụng quản lý và chăm sóc thú cưng",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=5500",
+    "build": "echo 'Building project...' && npm run copy-assets",
+    "copy-assets": "mkdir -p dist && cp -r assets css components pages index.html dist/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "font-awesome": "^4.7.0",
+    "mysql2": "^3.14.1"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.0"
+  },
+  "keywords": []
+}
