@@ -44,6 +44,23 @@ CREATE TABLE SanPham (
     FOREIGN KEY (ID_DonMuc) REFERENCES DonMucSP(ID_DonMuc)
 );
 
+CREATE TABLE IF NOT EXISTS LichSuDatLich (
+    ID_LichSu INT AUTO_INCREMENT PRIMARY KEY,
+    HoTen VARCHAR(100) NOT NULL,
+    SoDienThoai VARCHAR(15),
+    DichVu VARCHAR(100),
+    ChiNhanh VARCHAR(100),
+    TenThuCung VARCHAR(50),
+    Ngay DATE,
+    Gio TIME,
+    GhiChu TEXT,
+    TrangThai VARCHAR(50) DEFAULT 'Chờ xác nhận',
+    ID_TaiKhoan INT,
+    ThoiGianDat TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (ID_TaiKhoan) REFERENCES TaiKhoan(ID_TaiKhoan)
+);
+
+
 -- Insert ChucVu
 INSERT INTO ChucVu (TenCV, MoTaCV, TrangThai) VALUES
 ('Admin', 'Quản trị hệ thống', 'Hoạt động'),
@@ -77,3 +94,10 @@ INSERT INTO SanPham (TenSP, MoTa, Gia, SoLuong, ID_DonMuc, TrangThai) VALUES
 ('Hạt chó AIQ FORMULA Dog Food - 20kg', '', 805000, 100, 1, 'Còn hàng'),
 ('Hạt Classic Pets Small Breed Dog Flavour - 2kg', '', 110000, 100, 1, 'Còn hàng'),
 ('Hạt ZOI Dog thức ăn chó 1kg', '', 35000, 100, 1, 'Còn hàng');
+
+
+
+INSERT INTO LichSuDatLich (HoTen, SoDienThoai, DichVu, ChiNhanh, TenThuCung, Ngay, Gio, GhiChu, TrangThai, ID_TaiKhoan) VALUES
+('Nguyễn Văn A', '0987654321', 'Khám tổng quát', 'Petcare Cẩm Lệ', 'Luna', '2025-05-20', '09:00:00', 'Khám định kỳ', 'Chờ xác nhận', 1),
+('Trần Thị B', '0901234567', 'Chăm sóc lông', 'Petcare Hải Châu', 'Max', '2025-05-21', '14:00:00', 'Cắt tỉa lông', 'Đã xác nhận', 2),
+('Lê Văn C', '0912345678', 'Tiêm phòng', 'Petcare Cẩm Lệ', 'Buddy', '2025-05-22', '10:30:00', 'Tiêm vaccine', 'Hoàn thành', 1); 
